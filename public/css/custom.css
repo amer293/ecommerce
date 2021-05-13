@@ -1,22 +1,32 @@
-.transparent-style
-{
-    background-color: transparent!important;
+.white-style {
+    background-color: white !important;
 }
 
-.blue-style-bold
-{
-    font-weight: bold!important;
-    color: rgb(113,5,81);
+.blue-style-bold {
+    font-weight: bold !important;
+    color: rgb(113, 5, 81);
 }
 
-.nav-link-color
-{
-    font-weight: 600!important;
-    color: rgb(113,5,81)!important;
+.nav-link-color {
+    font-weight: 600 !important;
+    color: rgb(113, 5, 81) !important;
 }
 
-.link-hover:hover
-{
-    font-weight: bold!important;
-    color: rgb(113,5,81);
+.link-hover:hover {
+    font-weight: bold !important;
+    color: rgb(113, 5, 81);
+}
+
+.hover-item-product:hover {
+
+    border-right: solid 3px rgb(113, 5, 81);
+
+}
+
+.hover-button:hover {
+    -moz-transform: scale(1.1) skew(0deg, 1deg);
+    -webkit-transform: scale(1.1) skew(0deg, 1deg);
+    -o-transform: scale(1.1) skew(0deg, 1deg);
+    -ms-transform: scale(1.1) skew(0deg, 1deg);
+    transform: scale(1.1) skew(0deg, 1deg);
 }
