@@ -1,0 +1,22 @@
+{
+  "name": "ecommerce",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "currency-formatter": "^1.5.8",
+    "dotenv": "*",
+    "ejs": "*",
+    "express": "*",
+    "express-session": "*",
+    "mysql": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  },
+  "author": "",
+  "license": "ISC"
+}
