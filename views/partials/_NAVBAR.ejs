@@ -1,36 +1,76 @@
 <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky">
-    <nav class="uk-navbar-container uk-margin white-style" uk-navbar>
+    
+    <nav class="uk-navbar-container uk-margin white-style main-nav" style="background-color: rgb(113, 5, 81)!important;" uk-navbar>
         <div class="uk-navbar-center">
 
             <div class="uk-navbar-center-left">
                 <div>
                     <ul class="uk-navbar-nav">
                         <li class="uk-active">
-                            <a href="#" class="nav-link-color link-hover">Products</a>
+                            <a href="#" class="nav-link-color link-hover" style="color: white!important;">Products</a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a href="#">Active</a></li>
-                                    <li><a href="#">Item</a></li>
-                                    <li><a href="#">Item</a></li>
+                                    <% for(i = 0; i<category.length; i++) { %>
+                                    <li><a href="#" uk-icon="chevron-right" ><%- category[i].category_name %> </a></li>
+                                    <% } %>
                                 </ul>
                             </div>
                         </li>
                         <li>
-                            <a href="#" class="nav-link-color link-hover">Privacy</a>
+                            <a href="#" class="nav-link-color link-hover" style="color: white!important;">Privacy</a>
 
                         </li>
                     </ul>
                 </div>
             </div>
-            <a class="uk-navbar-item uk-logo" href="#"><span class="blue-style-bold">STORE</span></a>
+            <a class="uk-navbar-item uk-logo " href="/" style="color: white!important; font-weight: bold;">MERCH STORE</a>
             <div class="uk-navbar-center-right">
                 <div>
                     <ul class="uk-navbar-nav">
-                        <li><a href="#" class="nav-link-color link-hover">Contact</a></li>
-                        <li><a href="#" class="nav-link-color link-hover">Cart</a></li>
+                        <% if(!locals.user) { %>
+                            <li><a href="#modal-login" uk-toggle class="nav-link-color link-hover" style="color: white!important;">Login</a></li>
+                            <li><a href="#modal-register" uk-toggle class="nav-link-color link-hover" style="color: white!important;">Register</a></li>
+                        <% } else { %>
+                            <li><a href="#" class="nav-link-color link-hover" style="color: white!important;">Cart</a></li>
+                            <li>
+                                <a href="#" class="nav-link-color link-hover" style="color: white!important;">Account</a>
+                                <div class="uk-navbar-dropdown">
+                                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                                        <li><a href="#" uk-icon="chevron-right" >Orders </a></li>
+                                        <li><a href="#" uk-icon="chevron-right" >Logout </a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        <% } %>
+                       
+                        
+                        
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
 </div>
+
+<div id="sidenav" uk-offcanvas="flip: false" class="uk-offcanvas second-nav-bar">
+    <div class="uk-offcanvas-bar" style="background-color: rgb(113, 5, 81)!important; -webkit-box-shadow: 1px 5px 26px -8px rgba(0,0,0,0.54); 
+    box-shadow: 1px 5px 26px -8px rgba(0,0,0,0.54); display: hidden;" >
+        <a class="uk-navbar-item uk-logo" href="/" style="color: white;"><b>MERCH STORE</b></a>
+
+        <ul class="uk-nav">
+            <li><a class="uk-text-large" href="#"><b>Products</b></a></li>
+            <li><a class="uk-text-large"  href="#"><b>Privacy</b></a></li>
+            <% if(!locals.user) { %>
+                <li><a href="/account/login"  class="uk-text-large" ><b>Login</b></a></li>
+                <li><a href="/account/register" class="uk-text-large"><b>Register</b></a></li>
+            <% } else { %>
+                <li><a href="#" class="uk-text-large"><b>Cart</b></a></li>
+                <li><a href="#" class="uk-text-large"><b>Account</b></a></li>
+            <% } %>
+            
+        </ul>
+
+    </div>
+</div>
+
+<a class="uk-navbar-toggle uk-hidden@s" uk-toggle="target: #sidenav"  uk-navbar-toggle-icon></a>

@@ -1,7 +1,7 @@
 const { response } = require('express');
-var express = require('express');
-var router = express.Router();
-var conn = require('../../config/database');
+let express = require('express');
+let router = express.Router();
+let conn = require('../../config/database');
 
 
 
@@ -11,7 +11,14 @@ var conn = require('../../config/database');
 // Render Registration page
 router.get('/register', (req, res) => {
 
-    res.render('register');
+    let stmt = "SELECT * FROM category ORDER BY id ASC"
+    conn.query(stmt, (err, category) => {
+        if(err) throw err
+        console.log(category)
+        res.render('register', {category: category})
+
+    })
+    
 })
 
 // Sends data as a post request to the database for insertion
@@ -19,21 +26,16 @@ router.get('/register', (req, res) => {
 router.post('/register/new', (req, res) => {
 
     // User information
-    var first_name = req.body.first_name;
-    var last_name = req.body.last_name;
-    var username = req.body.username;
-    var city = req.body.city;
-    var state = req.body.state;
-    var zipcode = req.body.zipcode;
-    var email = req.body.email;
-    var password = req.body.password;
+    let username = req.body.username;
+    let password = req.body.password;
+    let email = req.body.email;
 
-    var info = [first_name, last_name ,username,  password, city, state, zipcode, email];
+    let info = [username, password, email];
 
     console.log(info)
 
     // Query checks if an email exits in the database if so then return 1
-    var stmt1 = 'SELECT COUNT(*) FROM user WHERE email = ?';
+    let stmt1 = 'SELECT COUNT(*) FROM user WHERE email = ?';
     conn.query(stmt1, email, (err, response) => {
         if (err) throw err
         var existsOrNot = JSON.stringify(response).split('"')[2].substring(1, 2)
@@ -45,7 +47,7 @@ router.post('/register/new', (req, res) => {
 
         } else {
             // Inserts the user in to the database
-            var stmt2 = 'INSERT INTO user(first_name, last_name, username, password,  city, state,  zipcode, email) VALUES(?, ?, ?, SHA(?), ?, ?, ?, ?)';
+            var stmt2 = 'INSERT INTO user(username, password, email) VALUES(?, SHA(?), ?)';
             conn.query(stmt2, info, (err) => {
                 if (err) throw err
                 res.redirect('/');
@@ -58,16 +60,28 @@ router.post('/register/new', (req, res) => {
 
 // Login
 // -------------------------------------------------------------
+// Render Login page
+router.get('/login', (req, res) => {
+
+    let stmt = "SELECT * FROM category ORDER BY id ASC"
+    conn.query(stmt, (err, category) => {
+        if(err) throw err
+        console.log(category)
+        res.render('login', {category: category})
+
+    })
+    
+})
 
 // User needs to provide email and password to be able to login
 router.post('/login/user', (req, res) => {
 
     // Grabs the values from the inputs
-    var username = req.body.username;
-    var password = req.body.password;
+    let username = req.body.username;
+    let password = req.body.password;
 
     // Puts user information in array for easier sql
-    var info = [username, password];
+    let info = [username, password];
 
     // check the user username and password
     stmt = 'SELECT id, username, password FROM user WHERE username = ? AND password = SHA(?)';
@@ -81,10 +95,9 @@ router.post('/login/user', (req, res) => {
             req.session.userId = response[0].id;
             console.log(req.session.userId)
 
-            res.redirect('/account/'+response[0].id);
+            res.redirect('/');
             
         }
-
 
     })
 })

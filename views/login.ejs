@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Load in UIKIT CSS JS -->
+    <%- include('partials/_HEAD.ejs') %>
+
+    <title>TEST</title>
+</head>
+
+<body>
+
+    <%- include('partials/_NAVBAR.ejs') %>
+    <br>
+    <div class="uk-container">
+        <div class="uk-flex uk-flex-center">
+            <div uk-grid>
+                <div class="uk-width-1-1@s">
+                    <div class="uk-card uk-card-default uk-card-body">
+                        <form action="/account/login/user" method="POST">
+                            <fieldset class="uk-fieldset" style="width: 100%;">
+            
+                                <div class="uk-margin">
+                                    <input class="uk-input"  placeholder="Username" type="text" name="username">
+                                </div>
+            
+                                <div class="uk-margin">
+                                    <input class="uk-input"  placeholder="Password" type="password" name="password">
+                                </div>
+                                
+                                <div class="uk-margin">
+                                    <button class="uk-button uk-button-primary"
+                                    style="font-weight: bold; background-color: rgb(113,5,81)!important;"> Log-in
+                                    </button>
+                                </div>
+            
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

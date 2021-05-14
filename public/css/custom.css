@@ -14,7 +14,7 @@
 
 .link-hover:hover {
     font-weight: bold !important;
-    color: rgb(113, 5, 81);
+    
 }
 
 .hover-item-product:hover {
@@ -29,4 +29,21 @@
     -o-transform: scale(1.1) skew(0deg, 1deg);
     -ms-transform: scale(1.1) skew(0deg, 1deg);
     transform: scale(1.1) skew(0deg, 1deg);
+}
+
+@media only screen and (max-width: 557px) {
+    .main-nav {
+        display: none !important;
+    }
+
+
+
+}
+
+@media only screen and (min-width: 555px) {
+    .second-nav-bar {
+        display: block !important;
+    }
+
+
 }

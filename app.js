@@ -38,7 +38,7 @@ var authRoute = require('./routes/auth/authentication');
 
 // Use routes
 app.use('/', indexRoute);
-app.use('/', authRoute);
+app.use('/account', authRoute);
 
 //Listen to server
 app.listen(httpsPort, () => {

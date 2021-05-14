@@ -1,0 +1,44 @@
+<div id="modal-register" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header" style="background-color: rgb(113,5,81)!important;">
+            <h2 class="uk-modal-title" style="color: white!important; font-weight: bold;">Register Account</h2>
+        </div>
+        <div class="uk-modal-body">
+            <form action="/account/register/new" method="POST">
+                <fieldset class="uk-fieldset" style="width: 100%;">
+
+                    <div class="uk-margin">
+                        <input class="uk-input uk-form-width-large" placeholder="Username" type="text" name="username">
+                    </div>
+
+                    <div class="uk-margin">
+                        <input class="uk-input uk-form-width-large" placeholder="Password" type="password"
+                            name="password">
+                    </div>
+
+                    <div class="uk-margin">
+                        <input class="uk-input uk-form-width-large" placeholder="Password Confirm" type="password"
+                            name="paswordConf">
+                    </div>
+
+                    <div class="uk-margin">
+                        <input class="uk-input uk-form-width-large" placeholder="E-Mail" type="email" name="email">
+                    </div>
+
+                    <div class="uk-margin">
+                        <input class="uk-checkbox" type="checkbox"> I accept the <a href="#">Terms Of
+                            Service</a></input>
+                    </div>
+
+                    <div class="uk-margin">
+                        <button class="uk-button uk-button-primary" type="submit"
+                            style="font-weight: bold; background-color: rgb(113,5,81)!important;"> Create Account
+                        </button>
+                    </div>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
