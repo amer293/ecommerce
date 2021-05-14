@@ -28,7 +28,7 @@
                 <div>
                     <ul class="uk-navbar-nav">
                         <% if(!locals.user) { %>
-                            <li><a href="#modal-login" uk-toggle class="nav-link-color link-hover" style="color: white!important;">Login</a></li>
+                            <li><a href="#modal-login" uk-toggle class="nav-link-color link-hover" style="color: white!important;">Log-in</a></li>
                             <li><a href="#modal-register" uk-toggle class="nav-link-color link-hover" style="color: white!important;">Register</a></li>
                         <% } else { %>
                             <li><a href="#" class="nav-link-color link-hover" style="color: white!important;">Cart</a></li>
@@ -37,7 +37,7 @@
                                 <div class="uk-navbar-dropdown">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         <li><a href="#" uk-icon="chevron-right" >Orders </a></li>
-                                        <li><a href="#" uk-icon="chevron-right" >Logout </a></li>
+                                        <li><a href="/account/logout" uk-icon="chevron-right" >Log-out </a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -61,11 +61,12 @@
             <li><a class="uk-text-large" href="#"><b>Products</b></a></li>
             <li><a class="uk-text-large"  href="#"><b>Privacy</b></a></li>
             <% if(!locals.user) { %>
-                <li><a href="/account/login"  class="uk-text-large" ><b>Login</b></a></li>
+                <li><a href="/account/login"  class="uk-text-large" ><b>Log-in</b></a></li>
                 <li><a href="/account/register" class="uk-text-large"><b>Register</b></a></li>
             <% } else { %>
                 <li><a href="#" class="uk-text-large"><b>Cart</b></a></li>
                 <li><a href="#" class="uk-text-large"><b>Account</b></a></li>
+                <li><a href="/account/Log-out" class="uk-text-large"><b>Log-out</b></a></li>
             <% } %>
             
         </ul>
